@@ -9,7 +9,7 @@ import {
   Button,
   Image,
 } from 'native-base';
-
+import { Icon } from 'react-native-eva-icons';
 import { storeContext } from '../store';
 import { getProductList } from '../services';
 import { Product, CartStackParamList } from '@types';
@@ -31,7 +31,7 @@ const CartScreen: FC<Props> = ({ navigation }) => {
   const renderProduct = ({ item }: { item: Product }) => {
     return (
       <>
-        <Box p="4">
+        <Box p="4" key={item.id}>
           <Stack p="4" space={3} bgColor={'green.100'} rounded="md">
             <HStack justifyContent="space-between" space={5}>
               <Stack space={2} maxW={'70%'}>
@@ -89,15 +89,19 @@ const CartScreen: FC<Props> = ({ navigation }) => {
       </Box>
       {cart.length > 0 && (
         <Button
-          width="20%"
+          width="10"
           bottom={'55px'}
-          left={260}
-          size="xs"
+          left={'280px'}
           position={'relative'}
           bgColor={'yellow.500'}
           onTouchEnd={() => navigation.navigate('Checkout')}
         >
-          <Text fontWeight="400">CART</Text>
+          <Icon
+            fill={'black'}
+            name="shopping-cart-outline"
+            width={22}
+            height={22}
+          />
         </Button>
       )}
     </>

@@ -20,7 +20,14 @@ const PRODUCT_LIST: Array<Product> = [
     name: 'Pepsodent',
     price: 16000,
     image_url: '',
-    description: 'Pasta gigi sejuta umat',
+    description: 'Pasta gigi sejuta manusia',
+  },
+  {
+    id: 4,
+    name: 'Rinso 1kg',
+    price: 9500,
+    image_url: '',
+    description: 'Detergen terbaik saat ini karena sudah ada dari dahulu.',
   },
 ];
 

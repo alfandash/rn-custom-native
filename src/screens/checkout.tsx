@@ -9,6 +9,7 @@ import {
   Image,
   Button,
 } from 'native-base';
+import { Icon } from 'react-native-eva-icons';
 
 import { storeContext } from '../store';
 import { ProductCart } from '@types';
@@ -67,9 +68,12 @@ const CheckoutScreen = () => {
                   onTouchEnd={() => dispatcher.reduceQty(item)}
                   mr="3"
                 >
-                  <Text fontWeight="600" fontSize={'xl'}>
-                    --
-                  </Text>
+                  <Icon
+                    fill={'black'}
+                    name="minus-outline"
+                    width={22}
+                    height={22}
+                  />
                 </Button>
                 <Text mx="2" fontWeight="600">
                   {item.qty}
@@ -80,9 +84,12 @@ const CheckoutScreen = () => {
                   onTouchEnd={() => dispatcher.addQty(item)}
                   ml="3"
                 >
-                  <Text fontWeight="600" fontSize={'xl'}>
-                    +
-                  </Text>
+                  <Icon
+                    fill={'black'}
+                    name="plus-outline"
+                    width={22}
+                    height={22}
+                  />
                 </Button>
               </HStack>
               <Box>

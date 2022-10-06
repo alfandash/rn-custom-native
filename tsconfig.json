@@ -7,7 +7,7 @@
     /* Completeness */
     "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./src", // all paths are relative to the baseUrl
+    // "baseUrl": "./src", // all paths are relative to the baseUrl
     "esModuleInterop": true,
     "isolatedModules": true,
     "module": "esnext",
@@ -17,9 +17,9 @@
     "lib": ["ES2021", "DOM"],
     "moduleResolution": "node",
     "noEmit": true,
-    "paths": {
-      "@*": ["*"] // resolve any `~/foo/bar` to `<baseUrl>/foo/bar`
-    },
+    // "paths": {
+    //   "@*": ["*"] // resolve any `~/foo/bar` to `<baseUrl>/foo/bar`
+    // },
   },
   "exclude": [
     "node_modules"
