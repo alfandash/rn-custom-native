@@ -10,7 +10,7 @@ function ProgressScreen() {
     if (!hold) {
       countInterval.current = setInterval(
         () => setCount((latest) => latest + 1),
-        10,
+        100,
       );
     }
 
@@ -25,13 +25,13 @@ function ProgressScreen() {
     }
   }, [count]);
   return (
-    <Center flex={1} w="100%">
-      <Box
-        w="90%"
-        maxW="400"
-        onTouchStart={() => setHold(true)}
-        onTouchEnd={() => setHold(false)}
-      >
+    <Center
+      flex={1}
+      w="100%"
+      onTouchStart={() => setHold(true)}
+      onTouchEnd={() => setHold(false)}
+    >
+      <Box w="90%" maxW="400">
         <Progress value={count} mx="4" />
         <Box w="100%" alignItems={'center'}>
           {`${count} %`}

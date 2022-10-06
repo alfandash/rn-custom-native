@@ -16,7 +16,7 @@ function DeviceIdScreen() {
       >
         <Text fontSize="sm" display="flex" color={'white'}>
           Device id{' '}
-          {(Platform.OS === 'android' && CustomModule.getUniqueIdSync()) ||
+          {(Platform.OS === 'android' && CustomModule.getDeviceIdSync()) ||
             CustomModule.getName()}
         </Text>
       </Box>
