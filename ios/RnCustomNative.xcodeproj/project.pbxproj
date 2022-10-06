@@ -14,6 +14,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-RnCustomNative-RnCustomNativeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-RnCustomNative-RnCustomNativeTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		F612E2D928EE7E0D008FCC0C /* RCTCustomModule.m in Sources */ = {isa = PBXBuildFile; fileRef = F612E2D828EE7E0D008FCC0C /* RCTCustomModule.m */; };
+		F612E2DA28EE7E0D008FCC0C /* RCTCustomModule.m in Sources */ = {isa = PBXBuildFile; fileRef = F612E2D828EE7E0D008FCC0C /* RCTCustomModule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = RnCustomNative/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-RnCustomNative-RnCustomNativeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RnCustomNative-RnCustomNativeTests.release.xcconfig"; path = "Target Support Files/Pods-RnCustomNative-RnCustomNativeTests/Pods-RnCustomNative-RnCustomNativeTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F612E2D728EE7CC6008FCC0C /* RCTCustomModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTCustomModule.h; sourceTree = "<group>"; };
+		F612E2D828EE7E0D008FCC0C /* RCTCustomModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTCustomModule.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				F612E2D728EE7CC6008FCC0C /* RCTCustomModule.h */,
+				F612E2D828EE7E0D008FCC0C /* RCTCustomModule.m */,
 				13B07FAE1A68108700A75B9A /* RnCustomNative */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* RnCustomNativeTests */,
@@ -404,6 +410,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F612E2DA28EE7E0D008FCC0C /* RCTCustomModule.m in Sources */,
 				00E356F31AD99517003FC87E /* RnCustomNativeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +421,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				F612E2D928EE7E0D008FCC0C /* RCTCustomModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

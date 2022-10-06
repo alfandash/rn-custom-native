@@ -1,3 +1,5 @@
+import { NativeModules, Platform } from 'react-native';
+const { CustomModule } = NativeModules;
 import { Text, Box, Center } from 'native-base';
 
 function DeviceIdScreen() {
@@ -13,7 +15,9 @@ function DeviceIdScreen() {
         color={'white'}
       >
         <Text fontSize="sm" display="flex" color={'white'}>
-          Device id
+          Device id{' '}
+          {(Platform.OS === 'android' && CustomModule.getUniqueIdSync()) ||
+            CustomModule.getName()}
         </Text>
       </Box>
     </Center>
