@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext, FC } from 'react';
+import { useContext } from 'react';
 import {
   Text,
   Box,
@@ -6,29 +6,19 @@ import {
   HStack,
   Stack,
   Heading,
-  Button,
   Image,
+  Button,
 } from 'native-base';
 
 import { storeContext } from '../store';
-import { getProductList } from '../services';
-import { Product, CartStackParamList } from '@types';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { ProductCart } from '@types';
 
 const DEFAULT_IMAGE = require('../assets/default-image.png');
 
-type Props = NativeStackScreenProps<CartStackParamList, 'Cart'>;
-
-const CartScreen: FC<Props> = ({ navigation }) => {
+const CheckoutScreen = () => {
   const { dispatcher, cart } = useContext(storeContext);
-  const [products, setProducts] = useState<Array<Product> | any[]>([]);
 
-  useEffect(() => {
-    // simulate product from api
-    setProducts(getProductList());
-  }, []);
-
-  const renderProduct = ({ item }: { item: Product }) => {
+  const renderProduct = ({ item }: { item: ProductCart }) => {
     return (
       <>
         <Box p="4">
@@ -71,10 +61,33 @@ const CartScreen: FC<Props> = ({ navigation }) => {
               justifyContent="space-between"
             >
               <HStack alignItems="center">
-                <Button onTouchEnd={() => dispatcher.addItem(item)}>
-                  Beli
+                <Button
+                  size="xs"
+                  bgColor={'yellow.500'}
+                  onTouchEnd={() => dispatcher.reduceQty(item)}
+                  mr="3"
+                >
+                  <Text fontWeight="600" fontSize={'xl'}>
+                    --
+                  </Text>
+                </Button>
+                <Text mx="2" fontWeight="600">
+                  {item.qty}
+                </Text>
+                <Button
+                  size="xs"
+                  bgColor={'yellow.500'}
+                  onTouchEnd={() => dispatcher.addQty(item)}
+                  ml="3"
+                >
+                  <Text fontWeight="600" fontSize={'xl'}>
+                    +
+                  </Text>
                 </Button>
               </HStack>
+              <Box>
+                <Text>Subtotal: Rp {item.totalPrice}</Text>
+              </Box>
             </HStack>
           </Stack>
         </Box>
@@ -85,23 +98,10 @@ const CartScreen: FC<Props> = ({ navigation }) => {
   return (
     <>
       <Box>
-        <FlatList data={products} renderItem={renderProduct} />
+        <FlatList data={cart} renderItem={renderProduct} />
       </Box>
-      {cart.length > 0 && (
-        <Button
-          width="20%"
-          bottom={'55px'}
-          left={260}
-          size="xs"
-          position={'relative'}
-          bgColor={'yellow.500'}
-          onTouchEnd={() => navigation.navigate('Checkout')}
-        >
-          <Text fontWeight="400">CART</Text>
-        </Button>
-      )}
     </>
   );
 };
 
-export default CartScreen;
+export default CheckoutScreen;

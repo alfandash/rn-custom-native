@@ -13,11 +13,25 @@ interface AppState {
 }
 
 const ADD_PRODUCT = 'ADD_PRODUCT';
+const REDUCE_QTY_PRODUCT = 'REDUCE_QTY_PRODUCT';
+const ADD_QTY_PRODUCT = 'ADD_QTY_PRODUCT';
 
 const dispatcher = (dispatch: Dispatch<Action>): any => ({
   addItem: (payload: Product) => {
     dispatch({
       type: ADD_PRODUCT,
+      payload: payload.id,
+    });
+  },
+  reduceQty: (payload: Product) => {
+    dispatch({
+      type: REDUCE_QTY_PRODUCT,
+      payload: payload.id,
+    });
+  },
+  addQty: (payload: Product) => {
+    dispatch({
+      type: ADD_QTY_PRODUCT,
       payload: payload.id,
     });
   },
@@ -62,6 +76,36 @@ export const appReducer = (reducerState: AppState, action: Action) => {
             totalPrice: product.price,
           },
         ],
+      };
+    }
+    case REDUCE_QTY_PRODUCT: {
+      return {
+        ...reducerState,
+        cart: reducerState.cart
+          .map((productCart) => {
+            if (productCart.id === action.payload) {
+              productCart.qty--;
+              productCart.totalPrice -= productCart.price;
+
+              if (productCart.qty <= 0) {
+                return;
+              }
+            }
+            return productCart;
+          })
+          .filter((product) => product),
+      };
+    }
+    case ADD_QTY_PRODUCT: {
+      return {
+        ...reducerState,
+        cart: reducerState.cart.map((productCart) => {
+          if (productCart.id === action.payload) {
+            productCart.qty++;
+            productCart.totalPrice += productCart.price;
+          }
+          return productCart;
+        }),
       };
     }
 

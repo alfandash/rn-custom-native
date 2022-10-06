@@ -10,3 +10,8 @@ export interface ProductCart extends Product {
   qty: number;
   totalPrice: number;
 }
+
+export type CartStackParamList = {
+  Cart: undefined;
+  Checkout: undefined;
+};

@@ -1,13 +1,26 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NativeBaseProvider, Icon } from 'native-base';
 
 import DeviceIdScreen from './src/screens/deviceId';
 import CartScreen from './src/screens/cart';
 import PogressScreen from './src/screens/progress';
+import CheckoutScreen from './src/screens/checkout';
 import { AppStateWrapper, appInitialState } from './src/store';
+import { CartStackParamList } from '@types';
 
 const Tab = createBottomTabNavigator();
+const SettingsStack = createNativeStackNavigator<CartStackParamList>();
+
+function CartStackScreen() {
+  return (
+    <SettingsStack.Navigator>
+      <SettingsStack.Screen name="Cart" component={CartScreen} />
+      <SettingsStack.Screen name="Checkout" component={CheckoutScreen} />
+    </SettingsStack.Navigator>
+  );
+}
 
 export default function App() {
   const appStateWrapperProps = {
@@ -22,7 +35,7 @@ export default function App() {
         <NavigationContainer>
           <Tab.Navigator>
             <Tab.Screen
-              name="Device Id"
+              name="DeviceIdTab"
               component={DeviceIdScreen}
               options={{
                 tabBarIcon: ({ color }) => (
@@ -31,16 +44,17 @@ export default function App() {
               }}
             />
             <Tab.Screen
-              name="Cart"
-              component={CartScreen}
+              name="CartTab"
+              component={CartStackScreen}
               options={{
                 tabBarIcon: ({ color }) => (
                   <Icon name="cart" style={{ backgroundColor: color }} />
                 ),
+                headerShown: false,
               }}
             />
             <Tab.Screen
-              name="Progress"
+              name="ProgressTab"
               component={PogressScreen}
               options={{
                 tabBarIcon: ({ color }) => (
