@@ -15,11 +15,12 @@ interface AppState {
 const ADD_PRODUCT = 'ADD_PRODUCT';
 
 const dispatcher = (dispatch: Dispatch<Action>): any => ({
-  addItem: (payload: any) =>
+  addItem: (payload: Product) => {
     dispatch({
       type: ADD_PRODUCT,
-      payload,
-    }),
+      payload: payload.id,
+    });
+  },
 });
 
 export const appInitialState: AppState = {
@@ -33,9 +34,7 @@ const { Provider } = storeContext;
 export const appReducer = (reducerState: AppState, action: Action) => {
   switch (action.type) {
     case ADD_PRODUCT: {
-      const { id }: { id: number } = action.payload;
-
-      const product = getProduct(id);
+      const product = getProduct(action.payload);
 
       const checkCart = reducerState.cart.find(
         (productCart: Product) => productCart.id === product.id,
@@ -49,6 +48,7 @@ export const appReducer = (reducerState: AppState, action: Action) => {
               productCart.qty++;
               productCart.totalPrice += product.price;
             }
+            return productCart;
           }),
         };
       }
