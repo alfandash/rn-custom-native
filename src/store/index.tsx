@@ -1,8 +1,8 @@
+import { createContext, useReducer, ReactNode, Dispatch, useMemo } from 'react';
 import { getProduct } from '../services';
 import { Product, ProductCart } from '../types';
-import { createContext, useReducer, ReactNode, Dispatch, useMemo } from 'react';
 
-interface Action {
+export interface Action {
   type: string;
   payload?: any;
 }
