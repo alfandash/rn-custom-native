@@ -11,7 +11,12 @@ export interface ProductCart extends Product {
   totalPrice: number;
 }
 
-export type CartStackParamList = {
-  Cart: undefined;
-  Checkout: undefined;
+export type ExampleStackParamList = {
+  Dummy1: undefined;
+  Dummy2: undefined;
 };
+
+export interface User {
+  id: number;
+  name: string;
+}

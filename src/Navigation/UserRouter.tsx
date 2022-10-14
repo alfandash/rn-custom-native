@@ -1,9 +1,9 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Icon } from 'react-native-eva-icons';
 
-import DeviceIdScreen from '@Screens/deviceId';
-import PogressScreen from '@Screens/progress';
-import { CartRouter } from './CartRouter';
+import DeviceIdScreen from '@Screens/userScreens/deviceId';
+import PogressScreen from '@Screens/userScreens/progress';
+import { ExampleStackRouter } from './StackRouter';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,10 +22,10 @@ export const UserRouter = () => {
         }}
       />
       <Tab.Screen
-        name="CartTab"
-        component={CartRouter}
+        name="StackTab"
+        component={ExampleStackRouter}
         options={{
-          tabBarLabel: 'Cart',
+          tabBarLabel: 'Stack',
           tabBarIcon: ({ color }) => (
             <Icon
               fill={color}

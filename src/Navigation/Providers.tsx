@@ -1,19 +1,13 @@
 import { NativeBaseProvider } from 'native-base';
 import { Routes } from './Routes';
-import { AppStateWrapper, appInitialState } from '@Store';
+import { AuthProvider } from '@Store/AuthStore';
 
 export const Providers = () => {
-  const appStateWrapperProps = {
-    initialState: {
-      ...appInitialState,
-    },
-  };
-
   return (
-    <AppStateWrapper {...appStateWrapperProps}>
+    <AuthProvider>
       <NativeBaseProvider>
         <Routes />
       </NativeBaseProvider>
-    </AppStateWrapper>
+    </AuthProvider>
   );
 };

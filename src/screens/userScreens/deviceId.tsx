@@ -1,8 +1,12 @@
 import { NativeModules, Platform } from 'react-native';
 const { CustomModule } = NativeModules;
 import { Text, Box, Center } from 'native-base';
+import { authContext } from '@Store';
+import { useContext } from 'react';
 
 function DeviceIdScreen() {
+  const { userInfo } = useContext(authContext);
+  console.log(userInfo);
   return (
     <Center flex={1}>
       <Box
