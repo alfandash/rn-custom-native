@@ -2,7 +2,7 @@ import { Text, Box, HStack, Stack, Heading, Button, Image } from 'native-base';
 import { ProductCart } from '@types';
 import { Icon } from 'react-native-eva-icons';
 
-const DEFAULT_IMAGE = require('../assets/default-image.png');
+const DEFAULT_IMAGE = require('@Assets/default-image.png');
 
 const ProductCheckout = ({
   item,

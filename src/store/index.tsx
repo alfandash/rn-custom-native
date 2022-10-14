@@ -1,6 +1,6 @@
 import { createContext, useReducer, ReactNode, Dispatch, useMemo } from 'react';
-import { getProduct } from '../services';
-import { Product, ProductCart } from '../types';
+import { getProduct } from '@Services';
+import { Product, ProductCart } from '@types';
 
 export interface Action {
   type: string;

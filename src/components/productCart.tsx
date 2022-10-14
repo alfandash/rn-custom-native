@@ -1,7 +1,7 @@
 import { Text, Box, HStack, Stack, Heading, Button, Image } from 'native-base';
 import { Product } from '@types';
 
-const DEFAULT_IMAGE = require('../assets/default-image.png');
+const DEFAULT_IMAGE = require('@Assets/default-image.png');
 
 const ProductCart = ({
   item,

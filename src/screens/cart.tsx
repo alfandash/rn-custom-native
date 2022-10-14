@@ -1,11 +1,11 @@
 import { useEffect, useState, useContext, FC } from 'react';
 import { Box, FlatList, Button } from 'native-base';
 import { Icon } from 'react-native-eva-icons';
-import { storeContext } from '../store';
-import { getProductList } from '../services';
+import { storeContext } from '@Store';
+import { getProductList } from '@Services';
 import { Product, CartStackParamList } from '@types';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import ProductCart from '../components/productCart';
+import ProductCart from '@Components/productCart';
 
 type Props = NativeStackScreenProps<CartStackParamList, 'Cart'>;
 

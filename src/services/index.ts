@@ -1,4 +1,4 @@
-import { Product } from '../types';
+import { Product } from '@types';
 
 const PRODUCT_LIST: Array<Product> = [
   {

@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { Box, FlatList } from 'native-base';
 
-import { storeContext } from '../store';
+import { storeContext } from '@Store';
 import { ProductCart } from '@types';
-import ProductCheckout from '../components/productCheckout';
+import ProductCheckout from '@Components/productCheckout';
 
 const CheckoutScreen = () => {
   const { dispatcher, cart } = useContext(storeContext);
